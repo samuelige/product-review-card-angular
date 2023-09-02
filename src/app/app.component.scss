@@ -1,0 +1,149 @@
+@use '../util/' as util;
+
+.main {
+  width: 100%;
+  height: 100%;
+  background: var(--main-bg);
+  display: flex;
+  flex-direction: column;
+
+  @include util.breakpoint(sm) {
+    height: auto;
+    padding: 1.75rem 1rem;
+  }
+
+  @include util.breakpoint(xsm) {
+    height: 100%;
+  }
+  @include util.breakpoint(xxs) {
+    height: auto;
+  }
+
+  @include util.breakpoint(xxxs) {
+    height: 100%;
+  }
+  @include util.breakpoint(xxxxs) {
+    height: auto;
+  }
+
+  &__container {
+    width: 37.5rem;
+    height: 28.125rem;
+    margin: auto;
+    border-radius: 0.625rem;
+    display: flex;
+    flex-direction: row;
+
+    @include util.breakpoint(sm) {
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+    }
+
+    &--image {
+      width: 18.75rem;
+
+      @include util.breakpoint(sm) {
+        width: 100%;
+      }
+
+      .lg-img {
+
+        @include util.breakpoint(sm) {
+          display: none;
+        }
+      }
+
+      .sm-img {
+        display: none;
+
+        @include util.breakpoint(sm) {
+          display: block;
+        }
+      }
+
+      img {
+        object-fit: fill;
+        width: 100%;
+      }
+    }
+
+    &--content {
+      flex: 1;
+      padding: 2rem;
+      background: white;
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+
+      @include util.breakpoint(sm) {
+        flex: none;
+        width: 100%;
+        padding: 1.5rem;
+      }
+
+      .subtext {
+        font-size: 0.75rem;
+        letter-spacing: 0.3125rem;
+        color: var(--text-gray);
+      }
+
+      .title-text {
+        color: var(--text-dark);
+        margin-top: 1.25rem;
+      }
+
+      .description, .price > span {
+        font-weight: 500;
+      }
+
+      .description {
+        color: var(--text-gray);
+        margin-top: 1.5rem;
+        font-size: 0.875rem;
+        line-height: 1.4375rem;
+      }
+
+      .price {
+        margin-top: 1.81rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: var(--text-green);
+
+        span {
+          margin-left: 1.19rem;
+          color: var(--text-gray);
+          font-size: 0.8125rem;
+          line-height: 1.4375rem;
+          text-decoration: line-through;
+        }
+      }
+
+      .action-btn {
+        background: var(--button-primary-bg);
+        border-radius: 0.5rem;
+        color: var(--text-light);
+        width: 100%;
+        height: 3rem;
+        margin-top: 1.87rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+
+        span {
+          font-size: 0.875rem;
+          margin-left: 0.73rem;
+          font-weight: 700;
+        }
+
+        &:hover {
+          cursor: pointer;
+          background: var(--button-primary-bg-hover);
+        }
+      }
+    }
+  }
+
+}
